@@ -13,7 +13,7 @@ while True:
   read_ser=ser.readline()
   print(read_ser)
   camera.start_preview()
-  sleep(20)
+  time.sleep(20)
   camera.stop_preview()
   
 
