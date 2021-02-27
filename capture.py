@@ -15,7 +15,7 @@ def prepDirectories():
 
     isADir = os.path.isdir(saveLocation)
     dirExists = os.path.exists(dirExists)
-    if dirExists == False || isADir == False:
+    if (dirExists == False) or (isADir == False):
         #bail
         print("Failed to create DCIM directory. Exiting.")
         exit(1)
