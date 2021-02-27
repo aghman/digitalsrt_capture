@@ -7,14 +7,14 @@ saveLocation = "/mnt/photoshare/DCIM"
 
 def prepDirectories():
     print("Preparing DCIM directory...")
-    dirExists = os.path.exists(dirExists)
+    dirExists = os.path.exists(saveLocation)
     if dirExists == False:
         # Make directory
         print("Creating DCIM directory...")
         os.mkdir(saveLocation)
 
     isADir = os.path.isdir(saveLocation)
-    dirExists = os.path.exists(dirExists)
+    dirExists = os.path.exists(saveLocation)
     if (dirExists == False) or (isADir == False):
         #bail
         print("Failed to create DCIM directory. Exiting.")
