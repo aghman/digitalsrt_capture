@@ -8,14 +8,14 @@ saveLocation = "/mnt/photoshare/DCIM"
 def prepDirectories():
     print("Preparing DCIM directory...")
     dirExists = os.path.exists(dirExists)
-    if !dirExists:
+    if dirExists == False:
         # Make directory
         print("Creating DCIM directory...")
         os.mkdir(saveLocation)
 
     isADir = os.path.isdir(saveLocation)
     dirExists = os.path.exists(dirExists)
-    if !dirExists || !isADir:
+    if dirExists == False || isADir == False:
         #bail
         print("Failed to create DCIM directory. Exiting.")
         exit(1)
@@ -34,7 +34,7 @@ def main():
     prepDirectories()
     serialPort = connectSerial()
     camera = PiCamera()
-    
+
     camera.start_preview()
     while True:
         serialOutput=serialPort.readline()
