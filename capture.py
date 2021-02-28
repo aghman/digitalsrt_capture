@@ -50,14 +50,14 @@ def main():
     serialPort = connectSerial()
     camera = PiCamera()
 
-    camera.start_preview()
+    #camera.start_preview()
     while True:
         currentImageName = getImageName(currentImageNumber)
         serialOutput=serialPort.readline()
         print(serialOutput)
         camera.capture(currentImageName)
         currentImageNumber += 1
-    camera.stop_preview()
+    #camera.stop_preview()
 
 
 if __name__ == "__main__":
