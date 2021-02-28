@@ -4,6 +4,7 @@ import os
 from picamera import PiCamera
 
 saveLocation = "/mnt/photoshare/DCIM"
+numDigitsInFilename = 5
 
 def prepDirectories():
     print("Preparing DCIM directory...")
@@ -28,18 +29,34 @@ def connectSerial():
     return serialPort
 
 
+def getStartingImageNumber():
+    return 0
+
+def getImageName(imageNumber):
+    baseImgName = "IMG_"
+    imageNumberString = str(imageNumber)
+    prefixLength = numDigitsInFilename - len(imageNumberString)
+    imageName = baseImgName.join([char*n for char in '0'])
+    finalName = saveLocation + "/" + imageName +".jpg"
+    print(finalName)
+    return finalName
+
   
 
 def main():
     prepDirectories()
+    currentImageNumber = getStartingImageNumber()
+
     serialPort = connectSerial()
     camera = PiCamera()
 
     camera.start_preview()
     while True:
+        currentImageName = getImageName(currentImageNumber)
         serialOutput=serialPort.readline()
         print(serialOutput)
-        camera.capture()
+        camera.capture(currentImageName)
+        currentImageNumber += 1
     camera.stop_preview()
 
 
