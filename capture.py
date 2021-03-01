@@ -46,7 +46,7 @@ def getImageName(imageNumber):
 def main():
     prepDirectories()
     currentImageNumber = getStartingImageNumber()
-    print("Starting Image number: " + currentImageNumber)
+    print("Starting Image number: " + str(currentImageNumber))
 
     serialPort = connectSerial()
     camera = PiCamera()
