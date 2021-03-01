@@ -37,7 +37,7 @@ def getImageName(imageNumber):
     imageNumberString = str(imageNumber)
     prefixLength = numDigitsInFilename - len(imageNumberString)
     imageName = baseImgName.join([char*prefixLength for char in '0'])
-    finalName = saveLocation + "/" + imageName +".jpg"
+    finalName = saveLocation + "/" + baseImgName + imageName +".jpg"
     print(finalName)
     return finalName
 
