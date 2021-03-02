@@ -50,7 +50,7 @@ def main():
 
     serialPort = connectSerial()
     camera = PiCamera()
-    sleep(2)
+    time.sleep(2)
 
     #camera.start_preview()
     while True:
